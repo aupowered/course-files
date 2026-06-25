@@ -1,0 +1,62 @@
+<html>
+   <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <style>
+         :root{--primary-colour:#933c92;--accent-colour:#fdb924}*{box-sizing:border-box;font-family:Montserrat,sans-serif;line-height:1.5;color:#fff;margin-top:0}body,html{margin:0;padding:0}h1{margin-bottom:1rem;font-size:1.5rem}.a--btn,button>*{color:#000}.promo,.promo__discount,.promo__info{display:flex;flex-direction:column}.promo{background-color:var(--primary-colour);border-radius:.75rem;padding:1rem}.promo__discount,.promo__info{justify-content:center}.promo__discount{flex-grow:1;margin-top:1rem;padding-top:2rem;border-top:solid 3px var(--accent-colour)}.promo__discount p{margin-bottom:0}.promo__discount-code-container{display:flex;align-items:center;gap:.25rem;margin-bottom:2rem}.a--btn{background-color:#fff;display:inline-block;padding:1rem 2rem;text-decoration:none;transition:.3s}.a--btn:hover{transform:scale(1.05)}#copy-btn{display:inline-flex;align-self:flex-start;align-items:center;background-color:rgba(255,255,255,.25);padding:0 .25rem 0 1rem;border-radius:1rem;border:none;cursor:pointer}#copy-btn svg{width:1.25rem;margin-left:.5rem}#discount-code{font-size:1.25rem;font-weight:600}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(min-width:768px){.promo{flex-direction:row;gap:3%}.promo__info{flex:0 0 calc(66.666% - 2rem)}.promo__discount{padding-left:1.5rem;margin-top:0;padding-top:0;border-top:none;border-left:solid 3px var(--accent-colour)}.promo__discount-code-container{flex-direction:column;align-items:flex-start}}@media(min-width:992px){.promo__discount-code-container{flex-direction:row;align-items:center}}
+      </style>
+      <title>Promotion: Energy Efficiency in Architecture, Engineering, and Construction (AEC) Industry Micro-Credential</title>
+   </head>
+   <body>
+      <main>
+         <div class="promo">
+            <div class="promo__info">
+               <h1>Want to learn more about sustainability?</h1>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue dictum est vitae auctor. In at ligula ac dolor porttitor mollis. Pellentesque eu libero vitae lectus posuere commodo eu vel risus. Vivamus bibendum rhoncus risus. Donec non sem urna.</p>
+            </div>
+            <div class="promo__discount">
+               <div class="promo__discount-code-container">
+                  <p>Discount code:</p>
+                  <button id="copy-btn" aria-labelledby="copy-instructions discount-code">
+                     <span id="discount-code">5FINGERS</span>
+                     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                        <path d="M288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448L480 448C515.3 448 544 419.3 544 384L544 183.4C544 166 536.9 149.3 524.3 137.2L466.6 81.8C454.7 70.4 438.8 64 422.3 64L288 64zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L352 496L352 512L160 512L160 256L176 256L176 192L160 192z"/>
+                     </svg>
+                     <span id="copy-instructions" class="sr-only">Copy discount code</span>
+                  </button>
+               </div>
+               <p><a class="a--btn" href="https://powered.athabascau.ca/product?catalog=AEC-Industry-Micro-Credential" target="_blank">Enroll in the course</a></p>
+            </div>
+         </div>
+         <div id="copy-status" aria-live="polite" class="sr-only"></div>
+      </main>
+      <script>
+         const copyBtn = document.getElementById('copy-btn');
+         const copyTarget = document.getElementById('discount-code');
+         const copyNotification = document.getElementById('copy-status');
+         copyBtn.addEventListener('click', (e) => {
+                 e.preventDefault();
+                 const textToCopy = document.createElement('textarea');
+             
+                 // Copy to clipboard
+                 textToCopy.value = copyTarget.innerText;
+                 textToCopy.classList.add('sr-only');
+                 document.body.appendChild(textToCopy);
+                 textToCopy.focus();
+                 textToCopy.select();
+                 try {
+                     const successful = document.execCommand('copy');
+                     if (successful) console.log('Text copied!');
+                 } catch (err) {
+                     console.error('Fallback failed', err);
+                 }
+                 copyNotification.textContent = 'Discount code copied to clipboard.';
+             
+                 // Cleanup
+                 document.body.removeChild(textToCopy);
+         });
+      </script>
+   </body>
+</html>
